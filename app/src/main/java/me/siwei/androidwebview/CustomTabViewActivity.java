@@ -2,6 +2,7 @@ package me.siwei.androidwebview;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+
+import org.chromium.customtabsclient.shared.CustomTabActivityHelper;
+import android.net.Uri;
 
 public class CustomTabViewActivity extends AppCompatActivity {
 
@@ -19,19 +23,15 @@ public class CustomTabViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_web_view);
-        Log.d("CustomTabViewActivity", "hihihi ");
+        Log.d("CustomTabViewActivity", "== in CustomTabViewActivity ");
 
-        WebView web_view = new WebView(this);
+//        CustomTabsIntent custom_tabs_intent = new CustomTabsIntent.Builder().build();
+//        Log.d("CustomTabViewActivity", "开始打开webview啦, now using custom tab view: ");
+//        CustomTabActivityHelper.openCustomTab(this, custom_tabs_intent, Uri.parse(URL), new WebviewFallback());
 
-        web_view.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT ));
-
-        
-        LinearLayout layout = (LinearLayout)findViewById(R.id.my_web_view_layout);
-        layout.addView(web_view);
-
-        web_view.loadUrl(URL);
-
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(URL));
     }
 }
 

@@ -19,10 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
-        RelativeLayout layout = (RelativeLayout)findViewById(R.id.the_layout);
+        LinearLayout layout = (LinearLayout)findViewById(R.id.the_layout);
 
         Button hi_button = new Button(this);
         hi_button.setText("click to open url");
@@ -37,9 +34,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
         layout.addView(hi_button);
+
+        Button custome_tab_button = new Button(this);
+        custome_tab_button.setText("使用新的CustomTabView");
+        custome_tab_button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT  ));
+        custome_tab_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Log.d("MainActivity", "opening the new webview: ");
+                Intent intent = new Intent(MainActivity.this, CustomTabViewActivity.class);
+                startActivity(intent);
+            }
+        });
+        layout.addView(custome_tab_button);
 
     }
 }
