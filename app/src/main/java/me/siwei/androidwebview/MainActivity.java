@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.content.Intent;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,12 +31,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Log.d("MainActivity", "clicked me!");
+                Intent intent = new Intent(MainActivity.this, MyWebViewActivity.class);
+                intent.putExtra("url", "http://h5.touring.com.cn/hi.html");
+                startActivity(intent);
+
             }
         });
 
 
         layout.addView(hi_button);
-
 
     }
 }
