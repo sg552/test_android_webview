@@ -26,7 +26,7 @@ public class MyWebViewActivity extends AppCompatActivity {
 
         WebView web_view = new WebView(this);
 
-        web_view.setLayoutParams(new LinearLayout.LayoutPara/ms(LinearLayout.LayoutParams.MATCH_PARENT,
+        web_view.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT ));
 
         web_view.setFocusableInTouchMode(true);
