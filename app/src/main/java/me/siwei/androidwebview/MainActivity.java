@@ -20,10 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button hi_button = new Button(this);
+
 
         RelativeLayout layout = (RelativeLayout)findViewById(R.id.the_layout);
 
+        Button hi_button = new Button(this);
         hi_button.setText("click to open url");
         hi_button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT  ));
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, MyWebViewActivity.class);
                 intent.putExtra("url", "http://h5.touring.com.cn/hi.html");
                 startActivity(intent);
-
             }
         });
 
