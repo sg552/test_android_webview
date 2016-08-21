@@ -7,6 +7,7 @@ import android.support.customtabs.CustomTabsClient;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.customtabs.CustomTabsServiceConnection;
 import android.support.customtabs.CustomTabsSession;
+import android.util.Log;
 
 import java.util.List;
 
@@ -32,16 +33,20 @@ public class CustomTabActivityHelper implements ServiceConnectionCallback {
                                      Uri uri,
                                      CustomTabFallback fallback) {
         String packageName = CustomTabsHelper.getPackageNameToUse(activity);
+        Log.d("CustomTabsHelper", "== packageName: " + packageName);
 
         //If we cant find a package name, it means theres no browser that supports
         //Chrome Custom Tabs installed. So, we fallback to the webview
         if (packageName == null) {
             if (fallback != null) {
+                Log.w("CustomTabsHelper", "== 开始运行fallback");
                 fallback.openUri(activity, uri);
             }
         } else {
+            Log.d("CustomTabsHelper", "== 正常的调用 Custom tab了");
             customTabsIntent.intent.setPackage(packageName);
             customTabsIntent.launchUrl(activity, uri);
+            Log.d("CustomTabsHelper", "== 调用 Custom tab完毕");
         }
     }
 

@@ -37,6 +37,15 @@ public class CustomTabsHelper {
     static final String LOCAL_PACKAGE = "com.google.android.apps.chrome";
     private static final String EXTRA_CUSTOM_TABS_KEEP_ALIVE =
             "android.support.customtabs.extra.KEEP_ALIVE";
+
+
+
+
+
+
+
+
+
     private static final String ACTION_CUSTOM_TABS_CONNECTION =
             "android.support.customtabs.action.CustomTabsService";
 
@@ -65,7 +74,7 @@ public class CustomTabsHelper {
 
         PackageManager pm = context.getPackageManager();
         // Get default VIEW intent handler.
-        Intent activityIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.com"));
+        Intent activityIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://h5.touring.com.cn"));
         ResolveInfo defaultViewHandlerInfo = pm.resolveActivity(activityIntent, 0);
         String defaultViewHandlerPackageName = null;
         if (defaultViewHandlerInfo != null) {
