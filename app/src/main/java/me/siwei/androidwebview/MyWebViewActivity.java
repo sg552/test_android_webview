@@ -11,8 +11,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 
-import java.lang.reflect.Method;
-
 public class MyWebViewActivity extends AppCompatActivity {
 
     // 要打开的URL
